@@ -1,6 +1,11 @@
+import android.app.AlarmManager
 import android.app.Dialog
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.text.format.DateFormat.is24HourFormat
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
@@ -8,6 +13,9 @@ import java.text.DateFormat
 import java.util.*
 
 class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
+
+    private var SelectedHour = 0
+    private var SelectedMinute = 0
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current time as the default values for the picker
@@ -21,5 +29,24 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
+        SelectedMinute = hourOfDay
+        SelectedMinute = minute
+
+        FireOffAlarm ()
+    }
+
+    private fun FireOffAlarm() {
+        var alarmMgr: AlarmManager? = null
+        lateinit var alarmIntent: PendingIntent
+        alarmMgr = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+            PendingIntent.getBroadcast(context, 0, intent, 0)
+        }
+
+        alarmMgr?.set(
+            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+            SystemClock.elapsedRealtime() + 60 * 1000,
+            alarmIntent
+        )
     }
 }
