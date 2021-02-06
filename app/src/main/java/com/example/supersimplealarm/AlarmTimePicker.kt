@@ -2,15 +2,17 @@ import android.app.AlarmManager
 import android.app.Dialog
 import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.text.format.DateFormat.is24HourFormat
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
-import java.text.DateFormat
 import java.util.*
+
 
 class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
 
@@ -49,4 +51,27 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
             alarmIntent
         )
     }
+
+    private var AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            // Repeat the scheduled task
+            super.onReceive (context, intent)
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                alarmManager.setExactAndAllowWhileIdle(
+//                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
+//                    pendingIntent
+//                )
+//            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                alarmManager.setExact(
+//                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
+//                    pendingIntent
+//                )
+            }
+            // to do something
+            //doSomething()
+        }
+    }
+
 }
