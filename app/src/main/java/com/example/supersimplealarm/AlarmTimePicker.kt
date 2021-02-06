@@ -41,7 +41,8 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         var alarmMgr: AlarmManager? = null
         lateinit var alarmIntent: PendingIntent
         alarmMgr = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+        //alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+        alarmIntent = Intent(context, BroadcastReceiver::class.java).let { intent ->
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
 
@@ -52,26 +53,26 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         )
     }
 
-    private var AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            // Repeat the scheduled task
-            super.onReceive (context, intent)
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                alarmManager.setExactAndAllowWhileIdle(
-//                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
-//                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
-//                    pendingIntent
-//                )
-//            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//                alarmManager.setExact(
-//                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
-//                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
-//                    pendingIntent
-//                )
-            }
-            // to do something
-            //doSomething()
-        }
-    }
-
+//    private var AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+//    //private var AlarmReceiver: BroadcastReceiver{
+//        override fun onReceive(context: Context, intent: Intent) {
+//            // Repeat the scheduled task
+//            //super.onReceive (context, intent)
+////            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+////                alarmManager.setExactAndAllowWhileIdle(
+////                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+////                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
+////                    pendingIntent
+////                )
+////            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+////                alarmManager.setExact(
+////                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
+////                    SystemClock.elapsedRealtime() + TIME_INTERVAL,
+////                    pendingIntent
+////                )
+//            }
+//            // to do something
+//            //doSomething()
+//        }
+//    }
 }
