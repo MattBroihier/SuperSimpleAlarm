@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.text.format.DateFormat.is24HourFormat
 import android.widget.TimePicker
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import java.util.*
 
@@ -49,8 +50,22 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         alarmMgr?.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
             SystemClock.elapsedRealtime() + 60 * 1000,
+//            AlarmManager.OnAlarmListener {
+//                                         SoundTheAlarm()
+//            },
             alarmIntent
         )
+        alarmMgr?.OnAlarmListener(){
+            SoundTheAlarm()
+        }
+    }
+
+    private fun SoundTheAlarm() {
+        val text = "Hello toast!"
+        val duration = Toast.LENGTH_SHORT
+
+        //val toast = Toast.makeText(this, text, duration)
+        //toast.show()
     }
 
 //    private var AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
