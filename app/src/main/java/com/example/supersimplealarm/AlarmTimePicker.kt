@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.text.format.DateFormat.is24HourFormat
+import android.view.SoundEffectConstants
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
@@ -53,11 +54,14 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 //            AlarmManager.OnAlarmListener {
 //                                         SoundTheAlarm()
 //            },
+            AlarmManager.OnAlarmListener {
+                SoundTheAlarm()
+            },
             alarmIntent
         )
-        alarmMgr?.OnAlarmListener(){
-            SoundTheAlarm()
-        }
+//        alarmMgr?.OnAlarmListener(){
+//            SoundTheAlarm()
+//        }
     }
 
     private fun SoundTheAlarm() {
