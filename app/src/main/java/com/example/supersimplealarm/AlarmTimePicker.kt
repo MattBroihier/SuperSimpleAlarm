@@ -54,9 +54,9 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 //            AlarmManager.OnAlarmListener {
 //                                         SoundTheAlarm()
 //            },
-//            AlarmManager.OnAlarmListener {
-//                SoundTheAlarm()
-            },
+            //AlarmManager.OnAlarmListener {
+            //    SoundTheAlarm()
+            //}
             alarmIntent
         )
 //        alarmMgr?.OnAlarmListener(){
