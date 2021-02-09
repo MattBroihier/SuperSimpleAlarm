@@ -43,7 +43,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         var alarmMgr: AlarmManager? = null
         lateinit var alarmIntent: PendingIntent
         alarmMgr = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        //alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+        //alarmIntent = Intent(context, com.example.supersimplealarm.AlarmReceiver::class.java).let { intent ->
         alarmIntent = Intent(context, BroadcastReceiver::class.java).let { intent ->
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
@@ -72,8 +72,8 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         //toast.show()
     }
 
-//    private var AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
-//    //private var AlarmReceiver: BroadcastReceiver{
+//    private var com.example.supersimplealarm.AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+//    //private var com.example.supersimplealarm.AlarmReceiver: BroadcastReceiver{
 //        override fun onReceive(context: Context, intent: Intent) {
 //            // Repeat the scheduled task
 //            //super.onReceive (context, intent)
