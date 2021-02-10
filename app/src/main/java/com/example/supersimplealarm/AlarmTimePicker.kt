@@ -13,6 +13,7 @@ import android.view.SoundEffectConstants
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.supersimplealarm.AlarmFunctions
 import java.util.*
 
 
@@ -36,7 +37,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         SelectedMinute = hourOfDay
         SelectedMinute = minute
 
-        SoundTheAlarm()
+        AlarmFunctions.SoundTheAlarm(getActivity()?.getApplicationContext())
 
         FireOffAlarm ()
     }
