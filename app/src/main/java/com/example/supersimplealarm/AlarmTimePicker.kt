@@ -36,6 +36,8 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         SelectedMinute = hourOfDay
         SelectedMinute = minute
 
+        SoundTheAlarm()
+
         FireOffAlarm ()
     }
 
