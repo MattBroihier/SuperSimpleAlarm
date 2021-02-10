@@ -7,7 +7,7 @@ import android.widget.Toast
 class AlarmFunctions {
     companion object {
         fun soundTheAlarm(applicationContext: Context?) {
-            val text = "Hello toast!"
+            val text = "Alarm! Alarm!"
             val duration = Toast.LENGTH_SHORT
 
             val toast = Toast.makeText(applicationContext, text, duration)
@@ -15,7 +15,7 @@ class AlarmFunctions {
         }
         fun soundTheAlarm(activity: Activity) {
 
-            val text = "Hello toast!"
+            val text = "Alarm! Alarm!"
             val duration = Toast.LENGTH_SHORT
 
             val toast = Toast.makeText(activity, text, duration)
