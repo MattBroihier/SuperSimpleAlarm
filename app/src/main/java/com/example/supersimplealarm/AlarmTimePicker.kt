@@ -2,14 +2,11 @@ import android.app.AlarmManager
 import android.app.Dialog
 import android.app.PendingIntent
 import android.app.TimePickerDialog
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.text.format.DateFormat.is24HourFormat
-import android.view.SoundEffectConstants
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
@@ -37,7 +34,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         SelectedMinute = hourOfDay
         SelectedMinute = minute
 
-        AlarmFunctions.SoundTheAlarm(getActivity()?.getApplicationContext())
+        AlarmFunctions.soundTheAlarm(getActivity()?.getApplicationContext())
 
         FireOffAlarm ()
     }
