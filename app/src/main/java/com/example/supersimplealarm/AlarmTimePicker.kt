@@ -66,12 +66,12 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 //        }
     }
 
-    private fun SoundTheAlarm() {
+    public fun SoundTheAlarm() {
         val text = "Hello toast!"
         val duration = Toast.LENGTH_SHORT
 
-        //val toast = Toast.makeText(this, text, duration)
-        //toast.show()
+        val toast = Toast.makeText(getActivity()?.getApplicationContext(), text, duration)
+        toast.show()
     }
 
 //    private var com.example.supersimplealarm.AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
