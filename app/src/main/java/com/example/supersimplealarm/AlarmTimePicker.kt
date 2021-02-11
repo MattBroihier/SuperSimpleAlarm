@@ -11,6 +11,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.supersimplealarm.AlarmFunctions
+import com.example.supersimplealarm.AlarmReceiver
 import java.util.*
 
 
@@ -44,13 +45,13 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         lateinit var alarmIntent: PendingIntent
         alarmMgr = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         //alarmIntent = Intent(context, com.example.supersimplealarm.AlarmReceiver::class.java).let { intent ->
-        alarmIntent = Intent(context, AlarmReceiverOld::class.java).let { intent ->
+        alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
 
         alarmMgr?.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            SystemClock.elapsedRealtime() + 15 * 1000,
+            SystemClock.elapsedRealtime() + 20 * 1000,
 //            AlarmManager.OnAlarmListener {
 //                                         SoundTheAlarm()
 //            },
