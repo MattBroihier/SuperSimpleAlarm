@@ -52,17 +52,8 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         alarmMgr?.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
             SystemClock.elapsedRealtime() + 20 * 1000,
-//            AlarmManager.OnAlarmListener {
-//                                         SoundTheAlarm()
-//            },
-            //AlarmManager.OnAlarmListener {
-            //    SoundTheAlarm()
-            //}
             alarmIntent
         )
-//        alarmMgr?.OnAlarmListener(){
-//            SoundTheAlarm()
-//        }
     }
 
     public fun SoundTheAlarm() {
