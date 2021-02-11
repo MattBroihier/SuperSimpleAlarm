@@ -10,7 +10,7 @@ import android.text.format.DateFormat.is24HourFormat
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.supersimplealarm.AlarmFunctions
+import com.example.supersimplealarm.Alarm
 import com.example.supersimplealarm.AlarmReceiver
 import java.util.*
 
@@ -35,7 +35,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         SelectedHour = hourOfDay
         SelectedMinute = minute
 
-        AlarmFunctions.soundTheAlarm(getActivity()?.getApplicationContext())
+        Alarm.soundTheAlarm(getActivity()?.getApplicationContext())
 
         FireOffAlarm ()
     }
