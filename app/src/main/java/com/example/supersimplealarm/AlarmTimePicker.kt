@@ -32,7 +32,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
-        SelectedMinute = hourOfDay
+        SelectedHour = hourOfDay
         SelectedMinute = minute
 
         AlarmFunctions.soundTheAlarm(getActivity()?.getApplicationContext())

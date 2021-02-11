@@ -1,8 +1,11 @@
 package com.example.supersimplealarm
 
-import android.app.Activity
 import android.content.Context
+import android.media.RingtoneManager
+import android.net.Uri
 import android.widget.Toast
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
+
 
 class AlarmFunctions {
     companion object {
@@ -12,14 +15,29 @@ class AlarmFunctions {
 
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
+            PlayASound(applicationContext)
         }
-        fun soundTheAlarm(activity: Activity) {
 
-            val text = "Alarm! Alarm!"
-            val duration = Toast.LENGTH_SHORT
-
-            val toast = Toast.makeText(activity, text, duration)
-            toast.show()
+        fun PlayASound(applicationContext: Context?)
+        {
+            try {
+                val notification: Uri =
+                    RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                val r = RingtoneManager.getRingtone(applicationContext,
+                    notification
+                )
+                r.play()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
+//        fun soundTheAlarm(activity: Activity) {
+//
+//            val text = "Alarm! Alarm!"
+//            val duration = Toast.LENGTH_SHORT
+//
+//            val toast = Toast.makeText(activity, text, duration)
+//            toast.show()
+//        }
     }
 }
