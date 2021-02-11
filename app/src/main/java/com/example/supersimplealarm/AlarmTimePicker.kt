@@ -44,7 +44,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         lateinit var alarmIntent: PendingIntent
         alarmMgr = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         //alarmIntent = Intent(context, com.example.supersimplealarm.AlarmReceiver::class.java).let { intent ->
-        alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+        alarmIntent = Intent(context, AlarmReceiverOld::class.java).let { intent ->
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
 
