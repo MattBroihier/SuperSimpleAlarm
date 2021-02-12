@@ -35,7 +35,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         SelectedHour = hourOfDay
         SelectedMinute = minute
 
-        Alarm.soundTheAlarm(getActivity()?.getApplicationContext())
+        //Alarm.soundTheAlarm(getActivity()?.getApplicationContext())
 
         FireOffAlarm ()
     }
@@ -56,13 +56,13 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         )
     }
 
-    public fun SoundTheAlarm() {
-        val text = "Hello toast!"
-        val duration = Toast.LENGTH_SHORT
-
-        val toast = Toast.makeText(getActivity()?.getApplicationContext(), text, duration)
-        toast.show()
-    }
+//    public fun SoundTheAlarm() {
+//        val text = "Hello toast!"
+//        val duration = Toast.LENGTH_SHORT
+//
+//        val toast = Toast.makeText(getActivity()?.getApplicationContext(), text, duration)
+//        toast.show()
+//    }
 
 //    private var com.example.supersimplealarm.AlarmReceiver: BroadcastReceiver = object : BroadcastReceiver() {
 //    //private var com.example.supersimplealarm.AlarmReceiver: BroadcastReceiver{
