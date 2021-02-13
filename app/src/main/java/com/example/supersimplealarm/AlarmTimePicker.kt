@@ -49,11 +49,15 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
 
-        alarmMgr?.set(
-            AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            SystemClock.elapsedRealtime() + 20 * 1000,
-            alarmIntent
-        )
+//        alarmMgr?.set(
+//            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//            SystemClock.elapsedRealtime() + 20 * 1000,
+//            alarmIntent
+//        )
+        //try out repeating alarm, every 20 seconds
+        val timeInterval:Long = 20 * 1000
+        val alarmTime = System.currentTimeMillis() + 20 * 1000
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, alarmTime, timeInterval , alarmIntent)
     }
 
 //    public fun SoundTheAlarm() {
