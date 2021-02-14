@@ -14,4 +14,8 @@ class MainActivity : AppCompatActivity() {
     fun showAlarmTimePicker(view: View) {
         TimePickerFragment().show(supportFragmentManager, "timePicker")
     }
+
+    fun showChooseSoundPicker(view: View) {
+        ChooseSoundPickerFragment().show(supportFragmentManager, "timePicker")
+    }
 }
