@@ -8,6 +8,8 @@ class ChooseSoundPickerFragment : DialogFragment(), RingtonePickerDialog{
 
     val ringtoneManager: RingtoneManager = RingtoneManager(this)
 
+    var alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+    //builder.setSound(alarmSound)
 
 
 
